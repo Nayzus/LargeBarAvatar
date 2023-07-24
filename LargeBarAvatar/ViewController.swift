@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     private func configureAvatarView() -> UIImageView {
         let imageView = UIImageView()
         
-        let image = UIImage(systemName: "person.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 28))
+        let image = UIImage(systemName: "person.crop.circle.fill")
         
         imageView.image = image
         imageView.tintColor = .gray
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
                     NSLayoutConstraint.activate([
                         itemView.bottomAnchor.constraint(
                             equalTo: subview.bottomAnchor,
-                            constant: -12
+                            constant: -8
                         ),
                         itemView.trailingAnchor.constraint(
                             equalTo: subview.trailingAnchor,
@@ -85,12 +85,18 @@ class ViewController: UIViewController {
     }
     private func setupConstraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        avatarView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
             scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            avatarView.widthAnchor.constraint(equalToConstant: 36),
+            avatarView.heightAnchor.constraint(equalToConstant: 36)
         ])
     }
 }
